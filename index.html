@@ -671,10 +671,83 @@
       );
     }
 
+    // ─── Web Audio ───
+    let audioCtx = null;
+
+    function getAudio() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      return audioCtx;
+    }
+
+    function playLand() {
+      try {
+        const ac = getAudio();
+        const osc = ac.createOscillator();
+        const gain = ac.createGain();
+        osc.connect(gain); gain.connect(ac.destination);
+        osc.type = 'square';
+        osc.frequency.setValueAtTime(180, ac.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(55, ac.currentTime + 0.08);
+        gain.gain.setValueAtTime(0.18, ac.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ac.currentTime + 0.09);
+        osc.start(ac.currentTime);
+        osc.stop(ac.currentTime + 0.09);
+      } catch(e) {}
+    }
+
+    function playClear(count) {
+      try {
+        const ac = getAudio();
+        // note frequencies for 1–4 line clears
+        const sequences = [
+          [523],                       // 1 line: C5
+          [523, 659],                  // 2 lines: C5 E5
+          [523, 659, 784],             // 3 lines: C5 E5 G5
+          [523, 659, 784, 1047],       // 4 lines (Tetris): C5 E5 G5 C6
+        ];
+        const notes = sequences[Math.min(count, 4) - 1];
+        const step = count === 4 ? 0.10 : 0.09;
+
+        notes.forEach((freq, i) => {
+          const osc  = ac.createOscillator();
+          const gain = ac.createGain();
+          osc.connect(gain); gain.connect(ac.destination);
+          osc.type = 'sine';
+          const t = ac.currentTime + i * step;
+          osc.frequency.setValueAtTime(freq, t);
+          gain.gain.setValueAtTime(0.0001, t);
+          gain.gain.exponentialRampToValueAtTime(count === 4 ? 0.28 : 0.22, t + 0.01);
+          const hold = count === 4 && i === notes.length - 1 ? 0.35 : 0.12;
+          gain.gain.setValueAtTime(count === 4 ? 0.28 : 0.22, t + hold);
+          gain.gain.exponentialRampToValueAtTime(0.001, t + hold + 0.12);
+          osc.start(t);
+          osc.stop(t + hold + 0.15);
+        });
+      } catch(e) {}
+    }
+
+    function playGameOver() {
+      try {
+        const ac = getAudio();
+        [330, 277, 220].forEach((freq, i) => {
+          const osc  = ac.createOscillator();
+          const gain = ac.createGain();
+          osc.connect(gain); gain.connect(ac.destination);
+          osc.type = 'sawtooth';
+          const t = ac.currentTime + i * 0.18;
+          osc.frequency.setValueAtTime(freq, t);
+          gain.gain.setValueAtTime(0.15, t);
+          gain.gain.exponentialRampToValueAtTime(0.001, t + 0.25);
+          osc.start(t); osc.stop(t + 0.28);
+        });
+      } catch(e) {}
+    }
+
     function lock() {
       piece.forEach((row, r) => row.forEach((v, c) => {
         if (v && pos.y + r >= 0) board[pos.y + r][pos.x + c] = v;
       }));
+      playLand();
       clearLines();
       spawnPiece();
     }
@@ -739,6 +812,7 @@
         level = Math.floor(lines / 10) + 1;
         dropInterval = Math.max(100, 800 - (level - 1) * 70);
         updateStats();
+        playClear(cleared);
       }
     }
 
@@ -841,6 +915,7 @@
     function endGame() {
       running = false;
       draw();
+      playGameOver();
       drawOverlay('GAME OVER', `Score: ${score}`);
       document.getElementById('start-btn').textContent = 'PLAY AGAIN';
     }
