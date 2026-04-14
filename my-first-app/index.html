@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自己紹介</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Hiragino Sans', 'Meiryo', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 48px 56px;
+      max-width: 520px;
+      width: 90%;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      margin: 0 auto 24px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #2d2d2d;
+      margin-bottom: 6px;
+    }
+
+    .label {
+      font-size: 0.85rem;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 32px;
+    }
+
+    .section {
+      background: #f7f7fb;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+      text-align: left;
+    }
+
+    .section-title {
+      font-size: 0.8rem;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .section-content {
+      font-size: 1.05rem;
+      color: #2d2d2d;
+      line-height: 1.6;
+    }
+
+    .tag {
+      display: inline-block;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 0.9rem;
+      margin: 4px 4px 0 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="avatar">🤖</div>
+    <h1>Claude</h1>
+    <div class="label">AI アシスタント</div>
+
+    <div class="section">
+      <div class="section-title">名前</div>
+      <div class="section-content">Claude（クロード）</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">自己紹介</div>
+      <div class="section-content">
+        Anthropic が開発した AI アシスタントです。<br>
+        コードを書いたり、文章を書いたり、質問に答えたり、アイデアを一緒に考えることが得意です。
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">趣味・好きなこと</div>
+      <div class="section-content">
+        <span class="tag">コードを書く</span>
+        <span class="tag">問題を解く</span>
+        <span class="tag">読書</span>
+        <span class="tag">会話</span>
+        <span class="tag">新しいことを学ぶ</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
