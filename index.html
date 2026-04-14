@@ -253,6 +253,29 @@
 
     .tetris-btn:hover { opacity: 0.85; transform: translateY(-1px); }
 
+    .next-wrap {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .next-label {
+      font-size: 0.6rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    #next-canvas {
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      display: block;
+    }
+
     .tetris-hint {
       font-size: 0.68rem;
       color: var(--muted);
@@ -379,6 +402,11 @@
 
         <canvas id="tetris-canvas" width="200" height="400"></canvas>
 
+        <div class="next-wrap">
+          <div class="next-label">Next</div>
+          <canvas id="next-canvas" width="80" height="80"></canvas>
+        </div>
+
         <button class="tetris-btn" id="start-btn">START</button>
 
         <div class="tetris-hint">
@@ -392,6 +420,8 @@
   <script>
     const canvas = document.getElementById('tetris-canvas');
     const ctx = canvas.getContext('2d');
+    const nextCanvas = document.getElementById('next-canvas');
+    const nctx = nextCanvas.getContext('2d');
     const COLS = 10, ROWS = 20, BLOCK = 20;
 
     const COLORS = [
@@ -416,21 +446,48 @@
       [[0,0,7],[7,7,7],[0,0,0]],                   // L
     ];
 
-    let board, piece, pos, score, level, lines, running, paused, rafId, lastTime, dropInterval;
+    let board, piece, nextPiece, pos, score, level, lines, running, paused, rafId, lastTime, dropInterval;
+
+    function randomPiece() {
+      const type = Math.floor(Math.random() * 7) + 1;
+      return { shape: SHAPES[type].map(r => [...r]), type };
+    }
 
     function init() {
       board = Array.from({length: ROWS}, () => Array(COLS).fill(0));
       score = 0; level = 1; lines = 0;
       dropInterval = 800;
       updateStats();
+      nextPiece = randomPiece();
       spawnPiece();
     }
 
     function spawnPiece() {
-      const type = Math.floor(Math.random() * 7) + 1;
-      piece = SHAPES[type].map(r => [...r]);
+      const { shape } = nextPiece;
+      piece = shape;
       pos = { x: Math.floor((COLS - piece[0].length) / 2), y: 0 };
+      nextPiece = randomPiece();
+      drawNext();
       if (collide()) { endGame(); }
+    }
+
+    function drawNext() {
+      nctx.fillStyle = '#22222c';
+      nctx.fillRect(0, 0, nextCanvas.width, nextCanvas.height);
+      const s = nextPiece.shape;
+      const nb = 16;
+      const offX = Math.floor((nextCanvas.width  - s[0].length * nb) / 2);
+      const offY = Math.floor((nextCanvas.height - s.length    * nb) / 2);
+      s.forEach((row, r) => row.forEach((v, c) => {
+        if (!v) return;
+        const color = COLORS[v];
+        nctx.fillStyle = color;
+        nctx.fillRect(offX + c * nb + 1, offY + r * nb + 1, nb - 2, nb - 2);
+        nctx.fillStyle = 'rgba(255,255,255,0.18)';
+        nctx.fillRect(offX + c * nb + 1, offY + r * nb + 1, nb - 2, 3);
+        nctx.fillStyle = 'rgba(0,0,0,0.2)';
+        nctx.fillRect(offX + c * nb + 1, offY + (r + 1) * nb - 3, nb - 2, 3);
+      }));
     }
 
     function collide(dx=0, dy=0, p=piece) {
@@ -579,6 +636,8 @@
 
     // Initial idle screen
     drawOverlay('TETRIS', 'Press START to play');
+    nctx.fillStyle = '#22222c';
+    nctx.fillRect(0, 0, nextCanvas.width, nextCanvas.height);
 
     document.getElementById('start-btn').addEventListener('click', startGame);
 
