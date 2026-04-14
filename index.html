@@ -283,6 +283,75 @@
       line-height: 1.6;
     }
 
+    /* ─── Janken ─── */
+    .janken-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+
+    .janken-score-row { display: flex; justify-content: space-between; width: 100%; }
+    .janken-stat { text-align: center; }
+    .janken-stat .label { font-size: 0.6rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+    .janken-stat .value { font-size: 1rem; font-weight: 700; color: var(--text); margin-top: 0.1rem; }
+
+    .janken-display {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.9rem 0.6rem;
+    }
+
+    .janken-side { display: flex; flex-direction: column; align-items: center; gap: 0.25rem; }
+    .janken-hand { font-size: 2.2rem; line-height: 1; transition: transform 0.15s; }
+    .janken-label { font-size: 0.65rem; color: var(--muted); font-weight: 500; }
+    .janken-vs { font-size: 0.7rem; font-weight: 700; color: var(--muted); }
+
+    .janken-result {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .janken-result.win  { color: #22c55e; }
+    .janken-result.lose { color: #f87171; }
+    .janken-result.draw { color: var(--accent-light); }
+
+    .janken-btns { display: flex; gap: 0.4rem; width: 100%; }
+
+    .janken-btn {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.55rem 0.2rem;
+      cursor: pointer;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 1.3rem;
+      transition: background 0.15s, border-color 0.15s, transform 0.1s;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    .janken-btn span { font-size: 0.6rem; color: var(--muted); font-weight: 500; }
+    .janken-btn:hover { border-color: rgba(99,102,241,0.4); background: rgba(99,102,241,0.1); }
+    .janken-btn:active { transform: scale(0.92); background: var(--accent); border-color: var(--accent); }
+
     /* Touch controls */
     .touch-controls {
       display: flex;
@@ -430,6 +499,34 @@
 
     <!-- ── Tetris ── -->
     <div class="tetris-col">
+
+      <!-- じゃんけん -->
+      <div class="janken-card">
+        <div class="tetris-title">じゃんけん</div>
+        <div class="janken-score-row">
+          <div class="janken-stat"><div class="label">You</div><div class="value" id="jk-win">0</div></div>
+          <div class="janken-stat"><div class="label">Draw</div><div class="value" id="jk-draw">0</div></div>
+          <div class="janken-stat"><div class="label">CPU</div><div class="value" id="jk-lose">0</div></div>
+        </div>
+        <div class="janken-display">
+          <div class="janken-side">
+            <div class="janken-hand" id="jk-player">🤜</div>
+            <div class="janken-label">You</div>
+          </div>
+          <div class="janken-vs">VS</div>
+          <div class="janken-side">
+            <div class="janken-hand" id="jk-cpu">🤛</div>
+            <div class="janken-label">CPU</div>
+          </div>
+        </div>
+        <div class="janken-result" id="jk-result">Choose!</div>
+        <div class="janken-btns">
+          <button class="janken-btn" data-choice="rock">✊<span>グー</span></button>
+          <button class="janken-btn" data-choice="scissors">✌️<span>チョキ</span></button>
+          <button class="janken-btn" data-choice="paper">🖐<span>パー</span></button>
+        </div>
+      </div>
+
       <div class="tetris-card">
         <div class="tetris-title">Tetris</div>
 
@@ -754,6 +851,50 @@
     nctx.fillRect(0, 0, nextCanvas.width, nextCanvas.height);
 
     document.getElementById('start-btn').addEventListener('click', startGame);
+
+    // ─── Janken ───
+    (function() {
+      const HANDS = { rock: '✊', scissors: '✌️', paper: '🖐' };
+      const BEATS = { rock: 'scissors', scissors: 'paper', paper: 'rock' };
+      const LABELS = { rock: 'グー', scissors: 'チョキ', paper: 'パー' };
+      let wins = 0, draws = 0, losses = 0;
+
+      function cpuChoice() {
+        const keys = Object.keys(HANDS);
+        return keys[Math.floor(Math.random() * keys.length)];
+      }
+
+      function play(player) {
+        const cpu = cpuChoice();
+        document.getElementById('jk-player').textContent = HANDS[player];
+        document.getElementById('jk-cpu').textContent = HANDS[cpu];
+
+        const resultEl = document.getElementById('jk-result');
+        resultEl.className = 'janken-result';
+
+        if (player === cpu) {
+          draws++;
+          resultEl.textContent = 'Draw! 🤝';
+          resultEl.classList.add('draw');
+        } else if (BEATS[player] === cpu) {
+          wins++;
+          resultEl.textContent = 'You Win! 🎉';
+          resultEl.classList.add('win');
+        } else {
+          losses++;
+          resultEl.textContent = 'You Lose 😢';
+          resultEl.classList.add('lose');
+        }
+
+        document.getElementById('jk-win').textContent  = wins;
+        document.getElementById('jk-draw').textContent = draws;
+        document.getElementById('jk-lose').textContent = losses;
+      }
+
+      document.querySelectorAll('.janken-btn').forEach(btn => {
+        btn.addEventListener('click', () => play(btn.dataset.choice));
+      });
+    })();
 
     // Mobile touch buttons
     function addTouch(id, action) {
