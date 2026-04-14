@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>自己紹介</title>
+  <title>自己紹介 - Daisuke Iida</title>
   <style>
     * {
       margin: 0;
@@ -18,14 +18,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 32px 16px;
     }
 
     .card {
       background: white;
       border-radius: 20px;
       padding: 48px 56px;
-      max-width: 520px;
-      width: 90%;
+      max-width: 580px;
+      width: 100%;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
       text-align: center;
     }
@@ -34,26 +35,37 @@
       width: 100px;
       height: 100px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #667eea, #764ba2);
+      background: linear-gradient(135deg, #0077b5, #00a0dc);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 48px;
-      margin: 0 auto 24px;
+      margin: 0 auto 20px;
     }
 
     h1 {
-      font-size: 2rem;
+      font-size: 1.9rem;
       color: #2d2d2d;
+      margin-bottom: 4px;
+    }
+
+    .pronouns {
+      font-size: 0.85rem;
+      color: #aaa;
       margin-bottom: 6px;
     }
 
-    .label {
+    .title {
+      font-size: 0.95rem;
+      color: #0077b5;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .location {
       font-size: 0.85rem;
       color: #888;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
 
     .section {
@@ -69,55 +81,95 @@
       color: #888;
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .section-content {
-      font-size: 1.05rem;
+      font-size: 1rem;
       color: #2d2d2d;
-      line-height: 1.6;
+      line-height: 1.7;
+    }
+
+    .section-content ul {
+      padding-left: 20px;
+      margin-top: 8px;
+    }
+
+    .section-content ul li {
+      margin-bottom: 4px;
     }
 
     .tag {
       display: inline-block;
-      background: linear-gradient(135deg, #667eea, #764ba2);
+      background: linear-gradient(135deg, #0077b5, #00a0dc);
       color: white;
       border-radius: 20px;
       padding: 4px 14px;
       font-size: 0.9rem;
       margin: 4px 4px 0 0;
     }
+
+    .linkedin-link {
+      display: inline-block;
+      margin-top: 24px;
+      color: #0077b5;
+      font-size: 0.9rem;
+      text-decoration: none;
+      border: 1.5px solid #0077b5;
+      border-radius: 20px;
+      padding: 6px 20px;
+    }
+
+    .linkedin-link:hover {
+      background: #0077b5;
+      color: white;
+    }
   </style>
 </head>
 <body>
   <div class="card">
-    <div class="avatar">🤖</div>
-    <h1>Claude</h1>
-    <div class="label">AI アシスタント</div>
-
-    <div class="section">
-      <div class="section-title">名前</div>
-      <div class="section-content">Claude（クロード）</div>
-    </div>
+    <div class="avatar">👨‍💼</div>
+    <h1>Daisuke (Dai) Iida</h1>
+    <div class="pronouns">He / Him</div>
+    <div class="title">Sr. Director, APAC / Business Committee | TA Instruments</div>
+    <div class="location">📍 東京都, 日本</div>
 
     <div class="section">
       <div class="section-title">自己紹介</div>
       <div class="section-content">
-        Anthropic が開発した AI アシスタントです。<br>
-        コードを書いたり、文章を書いたり、質問に答えたり、アイデアを一緒に考えることが得意です。
+        APAC 全般のマネジメントと営業リーダーシップで 20 年以上の経験を持つビジネスリーダー。
+        TA Instruments にて日本・韓国・インド・台湾・東南アジア・オセアニアをカバーする
+        マルチファンクショナルチームを統括しています。
+        工学修士号と MBA を持ち、技術的な深みとビジネス感覚を組み合わせています。
       </div>
     </div>
 
     <div class="section">
-      <div class="section-title">趣味・好きなこと</div>
+      <div class="section-title">専門領域</div>
       <div class="section-content">
-        <span class="tag">💻 コードを書く</span>
-        <span class="tag">🧩 問題を解く</span>
-        <span class="tag">📚 読書</span>
-        <span class="tag">💬 会話</span>
-        <span class="tag">✨ 新しいことを学ぶ</span>
+        <ul>
+          <li>🚀 ハイテク B2B 市場での事業成長（半導体・エレクトロニクス・ライフサイエンス）</li>
+          <li>🎯 Go-to-Market 戦略と営業パイプライン推進</li>
+          <li>🌏 クロスボーダーオペレーションとグローバル P&L 管理</li>
+          <li>🤝 リーダーシップ開発と組織スケーリング</li>
+        </ul>
       </div>
     </div>
+
+    <div class="section">
+      <div class="section-title">キーワード</div>
+      <div class="section-content">
+        <span class="tag">🏢 APAC 営業統括</span>
+        <span class="tag">📐 精密計測</span>
+        <span class="tag">🎓 工学修士 / MBA</span>
+        <span class="tag">🌏 クロスカルチャー</span>
+        <span class="tag">👥 チームビルディング</span>
+      </div>
+    </div>
+
+    <a class="linkedin-link" href="https://www.linkedin.com/in/daisukeiida" target="_blank">
+      🔗 LinkedIn プロフィール
+    </a>
   </div>
 </body>
 </html>
