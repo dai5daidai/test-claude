@@ -29,13 +29,21 @@
       min-height: 100vh;
       display: flex;
       justify-content: center;
-      align-items: flex-start;
       padding: 3rem 1rem;
     }
 
-    .container {
+    .page {
+      display: flex;
+      gap: 1.5rem;
       width: 100%;
-      max-width: 580px;
+      max-width: 1020px;
+      align-items: flex-start;
+    }
+
+    /* ─── Profile Column ─── */
+    .profile {
+      flex: 1;
+      min-width: 0;
     }
 
     /* ── Hero ── */
@@ -52,10 +60,8 @@
     .hero::before {
       content: '';
       position: absolute;
-      top: -60px;
-      right: -60px;
-      width: 220px;
-      height: 220px;
+      top: -60px; right: -60px;
+      width: 220px; height: 220px;
       background: radial-gradient(circle, rgba(99,102,241,0.25) 0%, transparent 70%);
       pointer-events: none;
     }
@@ -67,74 +73,41 @@
       margin-bottom: 1.4rem;
     }
 
-    .avatar-wrap {
-      position: relative;
-      flex-shrink: 0;
-    }
+    .avatar-wrap { position: relative; flex-shrink: 0; }
 
     .avatar-ring {
-      position: absolute;
-      inset: -3px;
+      position: absolute; inset: -3px;
       border-radius: 50%;
       background: conic-gradient(from 0deg, #6366f1, #a855f7, #ec4899, #6366f1);
       z-index: 0;
     }
 
     .avatar {
-      position: relative;
-      z-index: 1;
-      width: 76px;
-      height: 76px;
+      position: relative; z-index: 1;
+      width: 76px; height: 76px;
       border-radius: 50%;
       background: var(--surface2);
       border: 3px solid var(--surface);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--text);
-      letter-spacing: -0.5px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; font-weight: 700;
+      color: var(--text); letter-spacing: -0.5px;
     }
 
-    .hero-info h1 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: -0.4px;
-      line-height: 1.2;
-    }
-
-    .hero-info .role {
-      font-size: 0.82rem;
-      color: var(--muted);
-      margin-top: 0.3rem;
-      line-height: 1.55;
-    }
-
+    .hero-info h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.4px; line-height: 1.2; }
+    .hero-info .role { font-size: 0.82rem; color: var(--muted); margin-top: 0.3rem; line-height: 1.55; }
     .hero-info .location {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-top: 0.4rem;
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      font-size: 0.78rem; color: var(--muted); margin-top: 0.4rem;
     }
 
     .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #22c55e;
-      box-shadow: 0 0 6px #22c55e;
-      display: inline-block;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #22c55e; box-shadow: 0 0 6px #22c55e; display: inline-block;
     }
 
     .hero-bio {
-      font-size: 0.875rem;
-      color: #c4c4d4;
-      line-height: 1.8;
-      border-top: 1px solid var(--border);
-      padding-top: 1.2rem;
+      font-size: 0.875rem; color: #c4c4d4; line-height: 1.8;
+      border-top: 1px solid var(--border); padding-top: 1.2rem;
     }
 
     /* ── Cards ── */
@@ -147,273 +120,486 @@
     }
 
     .card-label {
-      font-size: 0.68rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent-light);
-      margin-bottom: 1rem;
+      font-size: 0.68rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--accent-light); margin-bottom: 1rem;
     }
 
-    /* ── Strengths ── */
-    .strength-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
+    .strength-list { display: flex; flex-direction: column; gap: 0.6rem; }
 
     .strength-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.7rem;
-      font-size: 0.86rem;
-      color: #c4c4d4;
-      line-height: 1.55;
+      display: flex; align-items: flex-start; gap: 0.7rem;
+      font-size: 0.86rem; color: #c4c4d4; line-height: 1.55;
     }
 
     .strength-item::before {
-      content: '';
-      flex-shrink: 0;
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--accent);
-      margin-top: 0.45em;
+      content: ''; flex-shrink: 0;
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--accent); margin-top: 0.45em;
     }
 
-    /* ── Tags ── */
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 
     .tag {
-      background: var(--tag-bg);
-      color: var(--tag-color);
+      background: var(--tag-bg); color: var(--tag-color);
       border: 1px solid rgba(99,102,241,0.2);
-      border-radius: 8px;
-      padding: 0.32rem 0.85rem;
-      font-size: 0.8rem;
-      font-weight: 500;
-      transition: background 0.2s, border-color 0.2s;
-      cursor: default;
+      border-radius: 8px; padding: 0.32rem 0.85rem;
+      font-size: 0.8rem; font-weight: 500;
+      transition: background 0.2s, border-color 0.2s; cursor: default;
     }
 
-    .tag:hover {
-      background: rgba(99,102,241,0.25);
-      border-color: rgba(99,102,241,0.4);
-    }
+    .tag:hover { background: rgba(99,102,241,0.25); border-color: rgba(99,102,241,0.4); }
 
-    /* ── Education ── */
-    .edu-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-    }
+    .edu-row { display: flex; align-items: flex-start; gap: 1rem; }
 
     .edu-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      flex-shrink: 0;
+      width: 38px; height: 38px; border-radius: 10px;
+      background: var(--surface2); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
     }
 
-    .edu-text .school {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--text);
-    }
+    .edu-text .school { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+    .edu-text .degree { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; }
 
-    .edu-text .degree {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: 0.2rem;
-    }
-
-    /* ── Career / Logos ── */
-    .logo-grid {
-      display: flex;
-      gap: 1.4rem;
-      flex-wrap: wrap;
-    }
+    .logo-grid { display: flex; gap: 1.4rem; flex-wrap: wrap; }
 
     .logo-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1rem 1.4rem;
-      transition: border-color 0.2s, transform 0.2s;
-      cursor: default;
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1rem 1.4rem;
+      transition: border-color 0.2s, transform 0.2s; cursor: default;
     }
 
-    .logo-item:hover {
-      border-color: rgba(99,102,241,0.35);
-      transform: translateY(-2px);
-    }
+    .logo-item:hover { border-color: rgba(99,102,241,0.35); transform: translateY(-2px); }
 
     .logo-item img {
-      height: 32px;
-      width: auto;
-      max-width: 110px;
-      object-fit: contain;
-      filter: brightness(0) invert(1) opacity(0.85);
-      transition: opacity 0.2s;
+      height: 32px; width: auto; max-width: 110px; object-fit: contain;
+      filter: brightness(0) invert(1) opacity(0.85); transition: opacity 0.2s;
     }
 
-    .logo-item:hover img {
-      filter: brightness(0) invert(1) opacity(1);
-    }
+    .logo-item:hover img { filter: brightness(0) invert(1) opacity(1); }
+    .logo-item .logo-name { font-size: 0.78rem; font-weight: 600; color: var(--text); }
+    .logo-item .logo-role { font-size: 0.72rem; color: var(--muted); }
 
-    .logo-item .logo-name {
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .logo-item .logo-role {
-      font-size: 0.72rem;
-      color: var(--muted);
-    }
-
-    /* ── Links ── */
-    .link-row {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
+    .link-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
 
     .link-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      text-decoration: none;
-      font-size: 0.84rem;
-      font-weight: 500;
-      color: var(--text);
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 10px;
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      text-decoration: none; font-size: 0.84rem; font-weight: 500;
+      color: var(--text); background: var(--surface2);
+      border: 1px solid var(--border); border-radius: 10px;
       padding: 0.5rem 1.1rem;
       transition: background 0.2s, border-color 0.2s, transform 0.15s;
     }
 
-    .link-btn:hover {
-      background: var(--accent);
-      border-color: var(--accent);
-      transform: translateY(-1px);
+    .link-btn:hover { background: var(--accent); border-color: var(--accent); transform: translateY(-1px); }
+    .link-btn svg { width: 15px; height: 15px; fill: currentColor; }
+
+    /* ─── Tetris Column ─── */
+    .tetris-col {
+      width: 240px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 3rem;
     }
 
-    .link-btn svg {
-      width: 15px;
-      height: 15px;
-      fill: currentColor;
+    .tetris-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .tetris-title {
+      font-size: 0.68rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--accent-light);
+      align-self: flex-start;
+    }
+
+    .tetris-meta {
+      display: flex; justify-content: space-between;
+      width: 100%;
+    }
+
+    .tetris-stat { text-align: center; }
+    .tetris-stat .label { font-size: 0.6rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+    .tetris-stat .value { font-size: 1rem; font-weight: 700; color: var(--text); margin-top: 0.1rem; }
+
+    #tetris-canvas {
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      display: block;
+    }
+
+    .tetris-btn {
+      width: 100%;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 0.55rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+
+    .tetris-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+
+    .tetris-hint {
+      font-size: 0.68rem;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 720px) {
+      .page { flex-direction: column; align-items: center; }
+      .tetris-col { width: 100%; max-width: 320px; position: static; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="page">
 
-    <!-- Hero -->
-    <div class="hero">
-      <div class="hero-top">
-        <div class="avatar-wrap">
-          <div class="avatar-ring"></div>
-          <div class="avatar">DAI</div>
+    <!-- ── Profile ── -->
+    <div class="profile">
+
+      <div class="hero">
+        <div class="hero-top">
+          <div class="avatar-wrap">
+            <div class="avatar-ring"></div>
+            <div class="avatar">DAI</div>
+          </div>
+          <div class="hero-info">
+            <h1>Daisuke (Dai) Iida</h1>
+            <div class="role">Sr. Director, APAC / Business Committee<br>TA Instruments · Waters Corporation</div>
+            <div class="location"><span class="dot"></span>Tokyo, Japan</div>
+          </div>
         </div>
-        <div class="hero-info">
-          <h1>Daisuke (Dai) Iida</h1>
-          <div class="role">Sr. Director, APAC / Business Committee<br>TA Instruments · Waters Corporation</div>
-          <div class="location"><span class="dot"></span>Tokyo, Japan</div>
-        </div>
+        <p class="hero-bio">
+          Cross-cultural business leader with 20+ years of experience in APAC general management and sales leadership.
+          Overseeing multifunctional teams across Japan, Korea, India, Taiwan, SEA, and ANZ —
+          covering sales, service, marketing, applications, and customer operations.
+        </p>
       </div>
-      <p class="hero-bio">
-        Cross-cultural business leader with 20+ years of experience in APAC general management and sales leadership.
-        Overseeing multifunctional teams across Japan, Korea, India, Taiwan, SEA, and ANZ —
-        covering sales, service, marketing, applications, and customer operations.
-      </p>
-    </div>
 
-    <!-- Key Strengths -->
-    <div class="card">
-      <div class="card-label">Key Strengths</div>
-      <div class="strength-list">
-        <div class="strength-item">Driving double-digit regional growth in high-tech B2B markets (semiconductors, electronics, life sciences, academia)</div>
-        <div class="strength-item">Go-to-Market strategy execution and pipeline acceleration</div>
-        <div class="strength-item">Cross-border order management and global P&amp;L alignment</div>
-        <div class="strength-item">Leadership development and organizational scaling</div>
-      </div>
-    </div>
-
-    <!-- Skills -->
-    <div class="card">
-      <div class="card-label">Skills</div>
-      <div class="tags">
-        <span class="tag">LabVIEW</span>
-        <span class="tag">Precision Engineering</span>
-        <span class="tag">Instrumentation</span>
-        <span class="tag">APAC Sales Leadership</span>
-        <span class="tag">B2B Strategy</span>
-        <span class="tag">Thermal Analysis</span>
-        <span class="tag">Rheology</span>
-      </div>
-    </div>
-
-    <!-- Education -->
-    <div class="card">
-      <div class="card-label">Education</div>
-      <div class="edu-row">
-        <div class="edu-icon">🎓</div>
-        <div class="edu-text">
-          <div class="school">University of North Carolina at Charlotte</div>
-          <div class="degree">M.S. Engineering &amp; MBA · Center for Precision Metrology</div>
+      <div class="card">
+        <div class="card-label">Key Strengths</div>
+        <div class="strength-list">
+          <div class="strength-item">Driving double-digit regional growth in high-tech B2B markets (semiconductors, electronics, life sciences, academia)</div>
+          <div class="strength-item">Go-to-Market strategy execution and pipeline acceleration</div>
+          <div class="strength-item">Cross-border order management and global P&amp;L alignment</div>
+          <div class="strength-item">Leadership development and organizational scaling</div>
         </div>
       </div>
-    </div>
 
-    <!-- Career -->
-    <div class="card">
-      <div class="card-label">Career</div>
-      <div class="logo-grid">
-        <div class="logo-item">
-          <img src="https://logo.clearbit.com/tainstruments.com" alt="TA Instruments"
-               onerror="this.style.display='none'">
-          <div class="logo-name">TA Instruments</div>
-          <div class="logo-role">Sr. Director, APAC</div>
+      <div class="card">
+        <div class="card-label">Skills</div>
+        <div class="tags">
+          <span class="tag">LabVIEW</span>
+          <span class="tag">Precision Engineering</span>
+          <span class="tag">Instrumentation</span>
+          <span class="tag">APAC Sales Leadership</span>
+          <span class="tag">B2B Strategy</span>
+          <span class="tag">Thermal Analysis</span>
+          <span class="tag">Rheology</span>
         </div>
-        <div class="logo-item">
-          <img src="https://logo.clearbit.com/ni.com" alt="NI"
-               onerror="this.style.display='none'">
-          <div class="logo-name">NI</div>
-          <div class="logo-role">APAC Sales Leadership</div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Education</div>
+        <div class="edu-row">
+          <div class="edu-icon">🎓</div>
+          <div class="edu-text">
+            <div class="school">University of North Carolina at Charlotte</div>
+            <div class="degree">M.S. Engineering &amp; MBA · Center for Precision Metrology</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Career</div>
+        <div class="logo-grid">
+          <div class="logo-item">
+            <img src="https://logo.clearbit.com/tainstruments.com" alt="TA Instruments" onerror="this.style.display='none'">
+            <div class="logo-name">TA Instruments</div>
+            <div class="logo-role">Sr. Director, APAC</div>
+          </div>
+          <div class="logo-item">
+            <img src="https://logo.clearbit.com/ni.com" alt="NI" onerror="this.style.display='none'">
+            <div class="logo-name">NI</div>
+            <div class="logo-role">APAC Sales Leadership</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="link-row">
+          <a class="link-btn" href="https://www.linkedin.com/in/daisukeiida/" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452H16.89v-5.569c0-1.328-.024-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a1.982 1.982 0 1 1 0-3.964 1.982 1.982 0 0 1 0 3.964zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a class="link-btn" href="https://github.com/dai5daidai" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /profile -->
+
+    <!-- ── Tetris ── -->
+    <div class="tetris-col">
+      <div class="tetris-card">
+        <div class="tetris-title">Tetris</div>
+
+        <div class="tetris-meta">
+          <div class="tetris-stat">
+            <div class="label">Score</div>
+            <div class="value" id="score">0</div>
+          </div>
+          <div class="tetris-stat">
+            <div class="label">Level</div>
+            <div class="value" id="level">1</div>
+          </div>
+          <div class="tetris-stat">
+            <div class="label">Lines</div>
+            <div class="value" id="lines">0</div>
+          </div>
+        </div>
+
+        <canvas id="tetris-canvas" width="200" height="400"></canvas>
+
+        <button class="tetris-btn" id="start-btn">START</button>
+
+        <div class="tetris-hint">
+          ← → Move &nbsp;·&nbsp; ↑ Rotate<br>↓ Soft drop &nbsp;·&nbsp; Space Hard drop
         </div>
       </div>
     </div>
 
-    <!-- Links -->
-    <div class="card">
-      <div class="link-row">
-        <a class="link-btn" href="https://www.linkedin.com/in/daisukeiida/" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M20.447 20.452H16.89v-5.569c0-1.328-.024-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a1.982 1.982 0 1 1 0-3.964 1.982 1.982 0 0 1 0 3.964zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          LinkedIn
-        </a>
-        <a class="link-btn" href="https://github.com/dai5daidai" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          GitHub
-        </a>
-      </div>
-    </div>
+  </div><!-- /page -->
 
-  </div>
+  <script>
+    const canvas = document.getElementById('tetris-canvas');
+    const ctx = canvas.getContext('2d');
+    const COLS = 10, ROWS = 20, BLOCK = 20;
+
+    const COLORS = [
+      null,
+      '#a855f7', // I
+      '#6366f1', // O
+      '#ec4899', // T
+      '#22c55e', // S
+      '#f59e0b', // Z
+      '#38bdf8', // J
+      '#fb923c', // L
+    ];
+
+    const SHAPES = [
+      null,
+      [[0,0,0,0],[1,1,1,1],[0,0,0,0],[0,0,0,0]], // I
+      [[2,2],[2,2]],                               // O
+      [[0,3,0],[3,3,3],[0,0,0]],                   // T
+      [[0,4,4],[4,4,0],[0,0,0]],                   // S
+      [[5,5,0],[0,5,5],[0,0,0]],                   // Z
+      [[6,0,0],[6,6,6],[0,0,0]],                   // J
+      [[0,0,7],[7,7,7],[0,0,0]],                   // L
+    ];
+
+    let board, piece, pos, score, level, lines, running, paused, rafId, lastTime, dropInterval;
+
+    function init() {
+      board = Array.from({length: ROWS}, () => Array(COLS).fill(0));
+      score = 0; level = 1; lines = 0;
+      dropInterval = 800;
+      updateStats();
+      spawnPiece();
+    }
+
+    function spawnPiece() {
+      const type = Math.floor(Math.random() * 7) + 1;
+      piece = SHAPES[type].map(r => [...r]);
+      pos = { x: Math.floor((COLS - piece[0].length) / 2), y: 0 };
+      if (collide()) { endGame(); }
+    }
+
+    function collide(dx=0, dy=0, p=piece) {
+      for (let r = 0; r < p.length; r++) {
+        for (let c = 0; c < p[r].length; c++) {
+          if (!p[r][c]) continue;
+          const nx = pos.x + c + dx, ny = pos.y + r + dy;
+          if (nx < 0 || nx >= COLS || ny >= ROWS) return true;
+          if (ny >= 0 && board[ny][nx]) return true;
+        }
+      }
+      return false;
+    }
+
+    function rotate(p) {
+      const rows = p.length, cols = p[0].length;
+      return Array.from({length: cols}, (_, c) =>
+        Array.from({length: rows}, (_, r) => p[rows - 1 - r][c])
+      );
+    }
+
+    function lock() {
+      piece.forEach((row, r) => row.forEach((v, c) => {
+        if (v && pos.y + r >= 0) board[pos.y + r][pos.x + c] = v;
+      }));
+      clearLines();
+      spawnPiece();
+    }
+
+    function clearLines() {
+      let cleared = 0;
+      for (let r = ROWS - 1; r >= 0; r--) {
+        if (board[r].every(v => v)) {
+          board.splice(r, 1);
+          board.unshift(Array(COLS).fill(0));
+          cleared++; r++;
+        }
+      }
+      if (cleared) {
+        const pts = [0, 100, 300, 500, 800][cleared] * level;
+        score += pts; lines += cleared;
+        level = Math.floor(lines / 10) + 1;
+        dropInterval = Math.max(100, 800 - (level - 1) * 70);
+        updateStats();
+      }
+    }
+
+    function updateStats() {
+      document.getElementById('score').textContent = score;
+      document.getElementById('level').textContent = level;
+      document.getElementById('lines').textContent = lines;
+    }
+
+    function draw() {
+      ctx.fillStyle = '#0f0f13';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.strokeStyle = 'rgba(255,255,255,0.03)';
+      ctx.lineWidth = 0.5;
+      for (let r = 0; r <= ROWS; r++) {
+        ctx.beginPath(); ctx.moveTo(0, r * BLOCK); ctx.lineTo(COLS * BLOCK, r * BLOCK); ctx.stroke();
+      }
+      for (let c = 0; c <= COLS; c++) {
+        ctx.beginPath(); ctx.moveTo(c * BLOCK, 0); ctx.lineTo(c * BLOCK, ROWS * BLOCK); ctx.stroke();
+      }
+
+      board.forEach((row, r) => row.forEach((v, c) => {
+        if (v) drawBlock(c, r, COLORS[v]);
+      }));
+
+      let ghostY = 0;
+      while (!collide(0, ghostY + 1)) ghostY++;
+      if (ghostY > 0) {
+        piece.forEach((row, r) => row.forEach((v, c) => {
+          if (v) {
+            ctx.fillStyle = 'rgba(255,255,255,0.08)';
+            ctx.fillRect((pos.x + c) * BLOCK + 1, (pos.y + r + ghostY) * BLOCK + 1, BLOCK - 2, BLOCK - 2);
+          }
+        }));
+      }
+
+      piece.forEach((row, r) => row.forEach((v, c) => {
+        if (v) drawBlock(pos.x + c, pos.y + r, COLORS[v]);
+      }));
+    }
+
+    function drawBlock(c, r, color) {
+      ctx.fillStyle = color;
+      ctx.fillRect(c * BLOCK + 1, r * BLOCK + 1, BLOCK - 2, BLOCK - 2);
+      ctx.fillStyle = 'rgba(255,255,255,0.18)';
+      ctx.fillRect(c * BLOCK + 1, r * BLOCK + 1, BLOCK - 2, 3);
+      ctx.fillStyle = 'rgba(0,0,0,0.2)';
+      ctx.fillRect(c * BLOCK + 1, (r + 1) * BLOCK - 3, BLOCK - 2, 3);
+    }
+
+    function drawOverlay(text, sub) {
+      ctx.fillStyle = 'rgba(15,15,19,0.82)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#f1f1f3';
+      ctx.font = 'bold 18px Inter, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(text, canvas.width / 2, canvas.height / 2 - 10);
+      if (sub) {
+        ctx.font = '11px Inter, sans-serif';
+        ctx.fillStyle = '#8b8b9e';
+        ctx.fillText(sub, canvas.width / 2, canvas.height / 2 + 14);
+      }
+    }
+
+    let dropCounter = 0;
+
+    function gameLoop(time = 0) {
+      if (!running || paused) return;
+      const delta = time - lastTime;
+      lastTime = time;
+      dropCounter += delta;
+      if (dropCounter >= dropInterval) {
+        if (!collide(0, 1)) { pos.y++; }
+        else { lock(); }
+        dropCounter = 0;
+      }
+      draw();
+      rafId = requestAnimationFrame(gameLoop);
+    }
+
+    function startGame() {
+      cancelAnimationFrame(rafId);
+      init();
+      running = true; paused = false;
+      lastTime = 0; dropCounter = 0;
+      document.getElementById('start-btn').textContent = 'RESTART';
+      rafId = requestAnimationFrame(gameLoop);
+    }
+
+    function endGame() {
+      running = false;
+      draw();
+      drawOverlay('GAME OVER', 'Score: ' + score);
+      document.getElementById('start-btn').textContent = 'PLAY AGAIN';
+    }
+
+    drawOverlay('TETRIS', 'Press START to play');
+
+    document.getElementById('start-btn').addEventListener('click', startGame);
+
+    document.addEventListener('keydown', e => {
+      if (!running || paused) return;
+      switch(e.key) {
+        case 'ArrowLeft':
+          if (!collide(-1, 0)) { pos.x--; draw(); }
+          e.preventDefault(); break;
+        case 'ArrowRight':
+          if (!collide(1, 0)) { pos.x++; draw(); }
+          e.preventDefault(); break;
+        case 'ArrowDown':
+          if (!collide(0, 1)) { pos.y++; dropCounter = 0; draw(); }
+          e.preventDefault(); break;
+        case 'ArrowUp': {
+          const rotated = rotate(piece);
+          if (!collide(0, 0, rotated)) { piece = rotated; draw(); }
+          e.preventDefault(); break;
+        }
+        case ' ': {
+          while (!collide(0, 1)) { pos.y++; score += 2; }
+          lock(); draw(); updateStats();
+          e.preventDefault(); break;
+        }
+      }
+    });
+  </script>
 </body>
 </html>
