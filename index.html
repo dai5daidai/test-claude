@@ -81,31 +81,21 @@
     .hero-info h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.4px; line-height: 1.2; }
     .hero-info .role { font-size: 0.82rem; color: var(--muted); margin-top: 0.3rem; line-height: 1.55; }
     .hero-info .location { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.78rem; color: var(--muted); margin-top: 0.4rem; }
-
     .dot { width: 6px; height: 6px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 6px #22c55e; display: inline-block; }
-
     .hero-bio { font-size: 0.875rem; color: #c4c4d4; line-height: 1.8; border-top: 1px solid var(--border); padding-top: 1.2rem; }
 
     .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 1.6rem 2rem; margin-bottom: 1rem; }
-
     .card-label { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-light); margin-bottom: 1rem; }
-
     .strength-list { display: flex; flex-direction: column; gap: 0.6rem; }
-
     .strength-item { display: flex; align-items: flex-start; gap: 0.7rem; font-size: 0.86rem; color: #c4c4d4; line-height: 1.55; }
-
     .strength-item::before { content: ''; flex-shrink: 0; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); margin-top: 0.45em; }
-
     .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-
     .tag { background: var(--tag-bg); color: var(--tag-color); border: 1px solid rgba(99,102,241,0.2); border-radius: 8px; padding: 0.32rem 0.85rem; font-size: 0.8rem; font-weight: 500; transition: background 0.2s, border-color 0.2s; cursor: default; }
     .tag:hover { background: rgba(99,102,241,0.25); border-color: rgba(99,102,241,0.4); }
-
     .edu-row { display: flex; align-items: flex-start; gap: 1rem; }
     .edu-icon { width: 38px; height: 38px; border-radius: 10px; background: var(--surface2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
     .edu-text .school { font-size: 0.9rem; font-weight: 600; color: var(--text); }
     .edu-text .degree { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; }
-
     .logo-grid { display: flex; gap: 1.4rem; flex-wrap: wrap; }
     .logo-item { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.4rem; transition: border-color 0.2s, transform 0.2s; cursor: default; }
     .logo-item:hover { border-color: rgba(99,102,241,0.35); transform: translateY(-2px); }
@@ -113,7 +103,6 @@
     .logo-item:hover img { filter: brightness(0) invert(1) opacity(1); }
     .logo-item .logo-name { font-size: 0.78rem; font-weight: 600; color: var(--text); }
     .logo-item .logo-role { font-size: 0.72rem; color: var(--muted); }
-
     .link-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
     .link-btn { display: inline-flex; align-items: center; gap: 0.45rem; text-decoration: none; font-size: 0.84rem; font-weight: 500; color: var(--text); background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 0.5rem 1.1rem; transition: background 0.2s, border-color 0.2s, transform 0.15s; }
     .link-btn:hover { background: var(--accent); border-color: var(--accent); transform: translateY(-1px); }
@@ -121,24 +110,25 @@
 
     /* ─── Tetris ─── */
     .tetris-col { width: 240px; flex-shrink: 0; position: sticky; top: 3rem; }
-
     .tetris-card { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 1.4rem; display: flex; flex-direction: column; align-items: center; gap: 0.9rem; }
-
     .tetris-title { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-light); align-self: flex-start; }
-
     .tetris-meta { display: flex; justify-content: space-between; width: 100%; }
     .tetris-stat { text-align: center; }
     .tetris-stat .label { font-size: 0.6rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
     .tetris-stat .value { font-size: 1rem; font-weight: 700; color: var(--text); margin-top: 0.1rem; }
-
     #tetris-canvas { border-radius: 8px; border: 1px solid var(--border); display: block; }
-
+    .tetris-btn { width: 100%; background: var(--accent); color: #fff; border: none; border-radius: 10px; padding: 0.55rem; font-size: 0.82rem; font-weight: 600; font-family: 'Inter', sans-serif; cursor: pointer; transition: opacity 0.2s, transform 0.15s; }
+    .tetris-btn:hover { opacity: 0.85; transform: translateY(-1px); }
     .next-wrap { width: 100%; display: flex; align-items: center; gap: 0.75rem; }
     .next-label { font-size: 0.6rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); white-space: nowrap; }
     #next-canvas { border-radius: 8px; border: 1px solid var(--border); background: var(--surface2); display: block; }
 
-    .tetris-btn { width: 100%; background: var(--accent); color: #fff; border: none; border-radius: 10px; padding: 0.55rem; font-size: 0.82rem; font-weight: 600; font-family: 'Inter', sans-serif; cursor: pointer; transition: opacity 0.2s, transform 0.15s; }
-    .tetris-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+    /* Touch controls */
+    .touch-controls { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; width: 100%; }
+    .touch-row { display: flex; gap: 0.4rem; justify-content: center; }
+    .touch-btn { width: 52px; height: 52px; background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; color: var(--text); font-size: 1.1rem; font-family: 'Inter', sans-serif; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.1s, transform 0.1s; -webkit-tap-highlight-color: transparent; user-select: none; }
+    .touch-btn:active { background: var(--accent); border-color: var(--accent); transform: scale(0.93); }
+    .touch-btn-wide { width: 100%; height: 40px; font-size: 0.75rem; letter-spacing: 0.08em; border-radius: 10px; }
 
     .tetris-hint { font-size: 0.68rem; color: var(--muted); text-align: center; line-height: 1.6; }
 
@@ -239,22 +229,30 @@
     <div class="tetris-col">
       <div class="tetris-card">
         <div class="tetris-title">Tetris</div>
-
         <div class="tetris-meta">
           <div class="tetris-stat"><div class="label">Score</div><div class="value" id="score">0</div></div>
           <div class="tetris-stat"><div class="label">Level</div><div class="value" id="level">1</div></div>
           <div class="tetris-stat"><div class="label">Lines</div><div class="value" id="lines">0</div></div>
         </div>
-
         <canvas id="tetris-canvas" width="200" height="400"></canvas>
-
         <div class="next-wrap">
           <div class="next-label">Next</div>
           <canvas id="next-canvas" width="80" height="80"></canvas>
         </div>
-
         <button class="tetris-btn" id="start-btn">START</button>
-
+        <div class="touch-controls">
+          <div class="touch-row">
+            <button class="touch-btn" id="btn-rotate">↑</button>
+          </div>
+          <div class="touch-row">
+            <button class="touch-btn" id="btn-left">←</button>
+            <button class="touch-btn" id="btn-down">↓</button>
+            <button class="touch-btn" id="btn-right">→</button>
+          </div>
+          <div class="touch-row">
+            <button class="touch-btn touch-btn-wide" id="btn-drop">DROP</button>
+          </div>
+        </div>
         <div class="tetris-hint">
           ← → Move &nbsp;·&nbsp; ↑ Rotate<br>↓ Soft drop &nbsp;·&nbsp; Space Hard drop
         </div>
@@ -271,7 +269,6 @@
     const COLS = 10, ROWS = 20, BLOCK = 20;
 
     const COLORS = [null,'#a855f7','#6366f1','#ec4899','#22c55e','#f59e0b','#38bdf8','#fb923c'];
-
     const SHAPES = [
       null,
       [[0,0,0,0],[1,1,1,1],[0,0,0,0],[0,0,0,0]],
@@ -284,6 +281,7 @@
     ];
 
     let board, piece, nextPiece, pos, score, level, lines, running, paused, rafId, lastTime, dropInterval, dropCounter;
+    let particles = [];
 
     function randomPiece() {
       const type = Math.floor(Math.random() * 7) + 1;
@@ -293,6 +291,7 @@
     function init() {
       board = Array.from({length: ROWS}, () => Array(COLS).fill(0));
       score = 0; level = 1; lines = 0; dropInterval = 800; dropCounter = 0;
+      particles = [];
       updateStats();
       nextPiece = randomPiece();
       spawnPiece();
@@ -316,11 +315,11 @@
       s.forEach((row, r) => row.forEach((v, c) => {
         if (!v) return;
         nctx.fillStyle = COLORS[v];
-        nctx.fillRect(offX + c*nb+1, offY + r*nb+1, nb-2, nb-2);
+        nctx.fillRect(offX+c*nb+1, offY+r*nb+1, nb-2, nb-2);
         nctx.fillStyle = 'rgba(255,255,255,0.18)';
-        nctx.fillRect(offX + c*nb+1, offY + r*nb+1, nb-2, 3);
+        nctx.fillRect(offX+c*nb+1, offY+r*nb+1, nb-2, 3);
         nctx.fillStyle = 'rgba(0,0,0,0.2)';
-        nctx.fillRect(offX + c*nb+1, offY + (r+1)*nb-3, nb-2, 3);
+        nctx.fillRect(offX+c*nb+1, offY+(r+1)*nb-3, nb-2, 3);
       }));
     }
 
@@ -345,10 +344,44 @@
       spawnPiece();
     }
 
+    function spawnParticles(row) {
+      for (let c=0; c<COLS; c++) {
+        const x=(c+0.5)*BLOCK, y=(row+0.5)*BLOCK;
+        const color=COLORS[Math.floor(Math.random()*7)+1];
+        for (let i=0; i<5; i++) {
+          const angle=Math.random()*Math.PI*2, speed=1.5+Math.random()*3;
+          particles.push({ x, y, vx:Math.cos(angle)*speed, vy:Math.sin(angle)*speed-2, alpha:1, size:2+Math.random()*3, color });
+        }
+      }
+    }
+
+    function updateParticles() {
+      particles = particles.filter(p => p.alpha > 0.02);
+      particles.forEach(p => { p.x+=p.vx; p.y+=p.vy; p.vy+=0.15; p.alpha-=0.03; });
+    }
+
+    function drawParticles() {
+      particles.forEach(p => {
+        ctx.save();
+        ctx.globalAlpha = p.alpha;
+        ctx.fillStyle = p.color;
+        ctx.shadowColor = p.color;
+        ctx.shadowBlur = 6;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+        ctx.fill();
+        ctx.restore();
+      });
+    }
+
     function clearLines() {
       let cleared=0;
-      for (let r=ROWS-1;r>=0;r--) {
-        if (board[r].every(v=>v)) { board.splice(r,1); board.unshift(Array(COLS).fill(0)); cleared++; r++; }
+      for (let r=ROWS-1; r>=0; r--) {
+        if (board[r].every(v=>v)) {
+          spawnParticles(r);
+          board.splice(r,1); board.unshift(Array(COLS).fill(0));
+          cleared++; r++;
+        }
       }
       if (cleared) {
         score += [0,100,300,500,800][cleared]*level;
@@ -374,6 +407,8 @@
       let ghostY=0; while(!collide(0,ghostY+1))ghostY++;
       if(ghostY>0) piece.forEach((row,r)=>row.forEach((v,c)=>{if(v){ctx.fillStyle='rgba(255,255,255,0.08)';ctx.fillRect((pos.x+c)*BLOCK+1,(pos.y+r+ghostY)*BLOCK+1,BLOCK-2,BLOCK-2);}}));
       piece.forEach((row,r)=>row.forEach((v,c)=>{if(v)drawBlock(pos.x+c,pos.y+r,COLORS[v]);}));
+      updateParticles();
+      drawParticles();
     }
 
     function drawBlock(c,r,color) {
@@ -393,10 +428,7 @@
       if(!running||paused) return;
       const delta=time-lastTime; lastTime=time;
       dropCounter+=delta;
-      if(dropCounter>=dropInterval){
-        if(!collide(0,1)) pos.y++; else lock();
-        dropCounter=0;
-      }
+      if(dropCounter>=dropInterval){ if(!collide(0,1)) pos.y++; else lock(); dropCounter=0; }
       draw();
       rafId=requestAnimationFrame(gameLoop);
     }
@@ -419,6 +451,18 @@
     nctx.fillStyle='#22222c'; nctx.fillRect(0,0,nextCanvas.width,nextCanvas.height);
 
     document.getElementById('start-btn').addEventListener('click',startGame);
+
+    function addTouch(id, action) {
+      const btn = document.getElementById(id);
+      btn.addEventListener('touchstart', e => { e.preventDefault(); if(running&&!paused) action(); }, { passive: false });
+      btn.addEventListener('mousedown',  () => { if(running&&!paused) action(); });
+    }
+
+    addTouch('btn-left',   () => { if(!collide(-1,0)){pos.x--;draw();} });
+    addTouch('btn-right',  () => { if(!collide(1,0)){pos.x++;draw();} });
+    addTouch('btn-rotate', () => { const rot=rotate(piece); if(!collide(0,0,rot)){piece=rot;draw();} });
+    addTouch('btn-down',   () => { if(!collide(0,1)){pos.y++;dropCounter=0;draw();} });
+    addTouch('btn-drop',   () => { while(!collide(0,1)){pos.y++;score+=2;} lock();draw();updateStats(); });
 
     document.addEventListener('keydown',e=>{
       if(!running||paused) return;
