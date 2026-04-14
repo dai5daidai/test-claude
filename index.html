@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daisuke (Dai) Iida</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: #f0f4f8;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.09);
+      max-width: 560px;
+      width: 100%;
+      padding: 2.5rem 2.5rem 2rem;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1a73e8, #0d47a1);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -1px;
+    }
+
+    .header-text h1 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .header-text .title {
+      color: #555;
+      font-size: 0.88rem;
+      margin-top: 0.3rem;
+      line-height: 1.5;
+    }
+
+    .header-text .location {
+      color: #888;
+      font-size: 0.82rem;
+      margin-top: 0.3rem;
+    }
+
+    .section {
+      margin-bottom: 1.4rem;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #1a73e8;
+      margin-bottom: 0.5rem;
+    }
+
+    .bio {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: #444;
+    }
+
+    .highlights {
+      list-style: none;
+      padding: 0;
+    }
+
+    .highlights li {
+      font-size: 0.88rem;
+      color: #444;
+      padding: 0.25rem 0 0.25rem 1.1rem;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .highlights li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: #1a73e8;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .tag {
+      background: #e8f0fe;
+      color: #1a73e8;
+      border-radius: 20px;
+      padding: 0.28rem 0.85rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+
+    .edu-item {
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .edu-item span {
+      display: block;
+      font-size: 0.82rem;
+      color: #777;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #eee;
+      margin: 1.4rem 0;
+    }
+
+    .links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .links a {
+      text-decoration: none;
+      color: #1a73e8;
+      font-size: 0.88rem;
+      font-weight: 500;
+      border: 1.5px solid #1a73e8;
+      border-radius: 6px;
+      padding: 0.4rem 1.1rem;
+      transition: background 0.18s, color 0.18s;
+    }
+
+    .links a:hover {
+      background: #1a73e8;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <div class="avatar">DAI</div>
+      <div class="header-text">
+        <h1>Daisuke (Dai) Iida</h1>
+        <div class="title">Sr. Director, APAC / Business Committee<br>TA Instruments | Waters Corporation</div>
+        <div class="location">Tokyo, Japan</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">About</div>
+      <p class="bio">
+        Cross-cultural business leader with 20+ years of experience in APAC general management and sales leadership.
+        Overseeing multifunctional teams across Japan, Korea, India, Taiwan, SEA, and ANZ —
+        covering sales, service, marketing, applications, and customer operations.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Key Strengths</div>
+      <ul class="highlights">
+        <li>Driving double-digit regional growth in high-tech B2B markets (semiconductors, electronics, life sciences, academia)</li>
+        <li>Go-to-Market strategy execution and pipeline acceleration</li>
+        <li>Cross-border order management and global P&amp;L alignment</li>
+        <li>Leadership development and organizational scaling</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Skills</div>
+      <div class="tags">
+        <span class="tag">LabVIEW</span>
+        <span class="tag">Precision Engineering</span>
+        <span class="tag">Instrumentation</span>
+        <span class="tag">APAC Sales Leadership</span>
+        <span class="tag">B2B Strategy</span>
+        <span class="tag">Thermal Analysis</span>
+        <span class="tag">Rheology</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Education</div>
+      <div class="edu-item">
+        University of North Carolina at Charlotte
+        <span>M.S. Engineering &amp; MBA — Center for Precision Metrology</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Career</div>
+      <ul class="highlights">
+        <li>TA Instruments / Waters Corporation — Sr. Director, APAC</li>
+        <li>NI (National Instruments) — APAC Sales Leadership</li>
+      </ul>
+    </div>
+
+    <hr class="divider">
+
+    <div class="links">
+      <a href="https://www.linkedin.com/in/daisukeiida/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/dai5daidai" target="_blank">GitHub</a>
+    </div>
+  </div>
+</body>
+</html>
