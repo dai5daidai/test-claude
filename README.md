@@ -1,20 +1,18 @@
 # test-claude
 
-A repository for testing Claude Code (Claudeのテストをするため).
+ブラウザで遊べるシンプルな **インベーダーゲーム** です。
 
-## Overview
+## 遊び方
 
-This repository is used for experimenting with and testing [Claude Code](https://claude.ai/code), Anthropic's AI-powered CLI and coding assistant.
+1. `index.html` をブラウザで開く
+2. キー操作でプレイ
+   - 移動: `←` `→` または `A` `D`
+   - 発射: `Space`
+   - リスタート: `R`（ゲームオーバー時）
 
-## Usage
-
-Clone the repository and use it as a sandbox for Claude Code experiments:
+## ローカル起動例
 
 ```bash
-git clone https://github.com/dai5daidai/test-claude.git
-cd test-claude
+python3 -m http.server 8000
+# http://localhost:8000 を開く
 ```
-
-## License
-
-This project is open for testing purposes.
